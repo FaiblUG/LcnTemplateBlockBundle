@@ -75,18 +75,18 @@ TWIG
 Example Twig template code:
 
 ```tiwg
-//add code to a block
+{# add code to a block #}
 {{ lcn_add_to_template_block('BLOCK_NAME', 'BLOCK_CONTENT') }}
 
-//adding the same code to a block again is ignored by default. You can force adding the same code by supplying false as third argument
+{# adding the same code to a block again is ignored by default. You can force adding the same code by supplying false as third argument #}
 {{ lcn_add_to_template_block('BLOCK_NAME', 'BLOCK_CONTENT', false) }}
 
-//you can set the code in a block effectively overriding existing code in the block
+{# you can set the code in a block effectively overriding existing code in the block #}
 {{ lcn_set_template_block('BLOCK_NAME', 'BLOCK_CONTENT') }}
 
-//clear a block
+{# clear a block #}
 {{ lcn_clear_template_block('BLOCK_NAME') }}
 
-//get the code of a block
+{# get the code of a block #}
 {{ lcn_template_block('BLOCK_NAME', 'OPTIONAL_FALLBACK_CODE') }}
 ```
