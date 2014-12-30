@@ -89,4 +89,7 @@ Example Twig template code:
 
 {# get the code of a block #}
 {{ lcn_template_block('BLOCK_NAME', 'OPTIONAL_FALLBACK_CODE') }}
+
+{# the code is escaped by default, but cou can also get the raw code of a block #}
+{{ lcn_template_block_raw('BLOCK_NAME', 'OPTIONAL_FALLBACK_CODE') }}
 ```
