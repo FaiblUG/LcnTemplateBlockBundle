@@ -1,0 +1,10 @@
+services:
+
+    lcn.template_block:
+        class: Lcn\TemplateBlockBundle\Service\TemplateBlock
+
+    lcn.twig.template_block_extension:
+        class: Lcn\TemplateBlockBundle\Twig\TemplateBlockExtension
+        arguments: [@lcn.template_block]
+        tags:
+            - { name: twig.extension }
