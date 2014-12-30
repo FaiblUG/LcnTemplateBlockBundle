@@ -20,13 +20,23 @@ class TemplateBlockExtension extends \Twig_Extension {
     public function getFunctions() {
         return array(
             'lcn_add_to_template_block' => new \Twig_Function_Method($this, 'addToTemplateBlockFunction'),
+            'lcn_set_template_block' => new \Twig_Function_Method($this, 'setTemplateBlockFunction'),
+            'lcn_clear_template_block' => new \Twig_Function_Method($this, 'clearTemplateBlockFunction'),
             'lcn_template_block' => new \Twig_Function_Method($this, 'templateBlockFunction'),
             'lcn_template_block_raw' => new \Twig_Function_Method($this, 'templateBlockFunction', array('is_safe' => array('html'))),
         );
     }
 
-    public function addToTemplateBlockFunction($blockName, $code) {
-        $this->templateBlock->add($blockName, $code);
+    public function addToTemplateBlockFunction($blockName, $code, $unique = true) {
+        $this->templateBlock->add($blockName, $code, $unique);
+    }
+
+    public function setTemplateBlockFunction($blockName, $code) {
+        $this->templateBlock->set($blockName, $code);
+    }
+
+    public function clearTemplateBlockFunction($blockName) {
+        $this->templateBlock->clear($blockName);
     }
 
     public function templateBlockFunction($blockName, $fallbackCode = '') {

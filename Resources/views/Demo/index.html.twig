@@ -1,3 +1,78 @@
-{{ lcn_add_to_template_block('test_twig', '<test_twig>TEST</test_twig>') }}
-{{ lcn_template_block('test_twig') }}<br />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LcnTemplateBlockBundle Demo and Documentation</title>
+</head>
+<body>
+
+<h1>Demo Usage of LcnTemplateBlock extension</h1>
+
+<h2>Twig Usage</h2>
+
+<h3>add block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 1</div>') }}" }}</pre>
+{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 1</div>') }}
+
+<h3>Output block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_twig') }}" }}</pre>
+{{ lcn_template_block('test_twig') }}
+
+<h3>Output block raw (unescaped) in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block_raw('test_twig') }}" }}</pre>
 {{ lcn_template_block_raw('test_twig') }}
+
+<h3>Add code to existing block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 2</div>') }}" }}</pre>
+{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 2</div>') }}
+
+<h3>Output updated block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_twig') }}" }}</pre>
+{{ lcn_template_block('test_twig') }}
+
+<h3>Adding exsting code to existing block in twig template gets ignored by default</h3>
+<pre class="prettyprint">{{ "{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 2</div>') }}" }}</pre>
+{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 2</div>') }}
+
+<h3>Output updated block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_twig') }}" }}</pre>
+{{ lcn_template_block('test_twig') }}
+
+<h3>Force adding exsting code to existing block in twig template by passing unique=false option</h3>
+<pre class="prettyprint">{{ "{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 2</div>', false) }}" }}</pre>
+{{ lcn_add_to_template_block('test_twig', '<div>TEST TWIG ADD 2</div>', false) }}
+
+<h3>Output updated block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_twig') }}" }}</pre>
+{{ lcn_template_block('test_twig') }}
+
+<h3>Set template block in twig (overriding existing code)</h3>
+<pre class="prettyprint">{{ "{{ lcn_set_template_block('test_twig', '<div>TEST TWIG SET</div>') }}" }}</pre>
+{{ lcn_set_template_block('test_twig', '<div>TEST TWIG SET</div>') }}
+
+<h3>Output updated block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_twig') }}" }}</pre>
+{{ lcn_template_block('test_twig') }}
+
+<h3>Clear template block in twig</h3>
+<pre class="prettyprint">{{ "{{ lcn_clear_template_block('test_twig') }}" }}</pre>
+{{ lcn_clear_template_block('test_twig') }}
+
+<h3>Output cleared block in twig template</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_twig') }}" }}</pre>
+{{ lcn_template_block('test_twig') }}
+
+<h2>PHP Usage</h2>
+<h3>Add Code to block in php controller</h3>
+<pre class="prettyprint">$this->container->get('lcn.template_block')->add('test_php', '<div>TEST PHP ADD 1</div>');</pre>
+{{ lcn_template_block('test_php') }}
+
+<h3>Output block from php controller in twig</h3>
+<pre class="prettyprint">{{ "{{ lcn_template_block('test_php') }}" }}</pre>
+{{ lcn_template_block('test_php') }}
+
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</body>
+</html>
+

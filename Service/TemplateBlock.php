@@ -15,6 +15,19 @@ class TemplateBlock {
         }
     }
 
+    public function set($blockName, $code)
+    {
+        $this->clear($blockName);
+        $this->add($blockName, $code);
+    }
+
+    public function clear($blockName)
+    {
+        $this->blocks[$blockName] = array();
+    }
+
+
+
     public function get($blockName, $default = null) {
         if (array_key_exists($blockName, $this->blocks)) {
             return implode(PHP_EOL, $this->blocks[$blockName]);
