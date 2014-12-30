@@ -1,0 +1,3 @@
+lcn_template_block_demo:
+    path:     /lcn-template-block/demo
+    defaults: { _controller: LcnTemplateBlockBundle:Demo:index }
